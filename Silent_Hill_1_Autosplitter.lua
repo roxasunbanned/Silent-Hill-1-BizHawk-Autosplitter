@@ -4,8 +4,12 @@
 -- Run BizHawk as Admin
 
 local gameAddresses = {
-    IGT = 0xBCC84
+    GAMECODE = 0x9244,
+    IGT = 0xBCC84,
+    J_IGT = 0xBF1B4,
 }
+
+local ntscU = false;
 
 local function init_livesplit()
     pipe_handle = io.open("//./pipe/LiveSplit", "a")
@@ -24,11 +28,21 @@ local function init_livesplit()
 end
 
 local function getIGT()
-    return memory.read_u32_le(gameAddresses.IGT) / 4096
+    local gameID = memory.readbyte(gameAddresses.GAMECODE + 2);
+    if(tostring(gameID) == "80") then
+        ntscU = false
+    else 
+        ntscU = true
+    end
+    if ntscU == true then
+        return memory.read_u32_le(gameAddresses.IGT) / 4096
+    else
+        return memory.read_u32_le(gameAddresses.J_IGT) / 4096
+    end
 end
 
 local function main()
-    -- Nothing to be done here.
+    print("test");
 end
 
 local function sendIGT()
