@@ -1,5 +1,5 @@
 -- Silent Hill 1 AutoSplitter for BizHawk
--- GitHub: https://github.com/BoredOfSpeedruns/Silent-Hill-1-BizHawk-Autosplitter
+-- GitHub: https://github.com/roxasunbanned/Silent-Hill-1-BizHawk-Autosplitter
 -- Requires LiveSplit 1.7+
 -- Run BizHawk as Admin
 
